@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%=@user.name%></h1>
+
+  <% if logged_in? && current_user == @user %>
+    <%= link_to 'New Status', new_status_path %> |
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Destroy',  @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+
+
+  <h2>articles</h2>
+
+    <% @user.articles.each do |article| %>
+    <tr>
+      <td><%= link_to 'Show', article %></td>
+      <%= article.text%>
+
+      <% if logged_in? && current_user == @user %>
+        <td><%= link_to 'Edit', edit_status_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+
+    </tr>
+  <% end %>
+
+   <%= link_to 'Back', users_path %>
+

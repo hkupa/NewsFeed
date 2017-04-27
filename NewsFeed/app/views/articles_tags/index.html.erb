@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Articles Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles_tags.each do |articles_tag| %>
+      <tr>
+        <td><%= link_to 'Show', articles_tag %></td>
+        <td><%= link_to 'Edit', edit_articles_tag_path(articles_tag) %></td>
+        <td><%= link_to 'Destroy', articles_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Articles tag', new_articles_tag_path %>
